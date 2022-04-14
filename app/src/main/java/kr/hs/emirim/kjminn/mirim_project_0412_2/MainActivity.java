@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             }
             double num1 = Double.parseDouble(edit1Str);
             double num2 = Double.parseDouble(edit2Str);
+
             double result = 0;
             switch (view.getId()){
                 case R.id.btn_plus:
@@ -53,9 +54,21 @@ public class MainActivity extends AppCompatActivity {
                     result = num1 * num2;
                     break;
                 case R.id.btn_divide:
+                    if(num2==0){
+                        Toast.makeText(getApplicationContext(),
+                                "나누는 수는 0이면 안됩니다.",
+                                Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     result = num1 / num2;
                     break;
                 case R.id.btn_mod:
+                    if(num2==0){
+                        Toast.makeText(getApplicationContext(),
+                                "나누는 수는 0이면 안됩니다.",
+                                Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     result = num1 % num2;
                     break;
             }
